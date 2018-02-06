@@ -1,0 +1,23 @@
+{
+  "name": "theyelpcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vikundu/theyelpcamp.git"
+  },
+  "author": "Vikas Kundu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikundu/theyelpcamp/issues"
+  },
+  "homepage": "https://github.com/vikundu/theyelpcamp#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
