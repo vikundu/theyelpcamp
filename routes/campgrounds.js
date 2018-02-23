@@ -59,15 +59,26 @@ router.get("/:id",function(req, res) {
 
 //render the form for editing a campground
 router.get("/:id/edit",function(req, res) {
+
+    if(req.isAuthenticated()){
+        Campground.findById(req.params.id,function(err,foundCampground){
+            if(err){
+                console.log(err);
+            }
+            else{
+                if(foundCampground.author.id.equals(req.user._id)){
+                    res.render("campgrounds/edit",{campground:foundCampground});    
+                }else{
+                    res.send("You do not have permission!");                    
+                }
+                         
+            }
+        
+        });
+    }else{
+        res.send("You need to be logged in!!");
+    }
     
-    Campground.findById(req.params.id,function(err,foundCampground){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.render("campgrounds/edit",{campground:foundCampground});         
-        }
-    });
     
 });
 
