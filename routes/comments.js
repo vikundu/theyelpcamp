@@ -47,6 +47,27 @@ router.post("/",isLoggedIn,function(req,res){
 });
 
 
+
+//Edit comment route
+router.get("/:comment_id/edit",function(req,res){
+    
+    
+    Comment.findById(req.params.comment_id,function(err, foundComment) {
+        console.log(foundComment);    
+        if(err){
+            console.log(err);
+        }else{
+            res.render("comments/edit",{campground_id:req.params.id,comment:foundComment});      
+        }
+    })
+});
+
+//update comment 
+router.put("/:comment_id/edit",function(req,res){
+    res.send("dnsaj");
+});
+
+
 //middleware
 function isLoggedIn(req,res,next){
     
